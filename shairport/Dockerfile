@@ -5,18 +5,15 @@ FROM ${BUILD_FROM}
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base
-#RUN \
-#    apt-get update \
-#    \
-#    && apt-get install -y --no-install-recommends shairport-sync \
-#    \
-#    && rm -fr \
-#        /tmp/* \
-#        /var/{cache,log}/* \
-#        /var/lib/apt/lists/*
-
 RUN \
-	/bin/true
+    apt-get update \
+    \
+    && apt-get install -y --no-install-recommends shairport-sync \
+    \
+    && rm -fr \
+        /tmp/* \
+        /var/{cache,log}/* \
+        /var/lib/apt/lists/*
 
 # Copy root filesystem
 COPY rootfs /

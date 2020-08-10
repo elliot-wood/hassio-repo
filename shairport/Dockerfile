@@ -8,7 +8,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
     apt-get update \
     \
-    && apt-get install -y --no-install-recommends shairport-sync \
+    && apt-get install -y --no-install-recommends \
+    	shairport-sync \
+    	libasound2-plugins \
     \
     && rm -fr \
         /tmp/* \

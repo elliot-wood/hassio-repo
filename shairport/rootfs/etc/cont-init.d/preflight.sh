@@ -31,7 +31,7 @@ airplay_name=$(bashio::config 'airplay_name')
 {
 	echo "general ="
 	echo "\{"
-    echo "name = ${airplay_name}"
+    echo "name = \"${airplay_name}\""
     echo "\}\;"
 } > /etc/shairport-sync.conf
 

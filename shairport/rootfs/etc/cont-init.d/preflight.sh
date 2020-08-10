@@ -36,9 +36,10 @@ airplay_name=$(bashio::config 'airplay_name')
 } > /etc/shairport-sync.conf
 
 avahi_hostname=$(bashio::config 'avahi_hostname')
+avahi_domain=$(bashio::config 'avahi_domain')
 {
 	echo "[server]"
 	echo "host-name=${avahi_hostname}"
-	echo "domain-name=${avahi_hostname}"
+	echo "domain-name=${avahi_domain}"
 	echo "allow-interfaces=eth0"
 } > /etc/avahi/avahi-daemon.conf

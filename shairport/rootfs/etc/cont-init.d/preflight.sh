@@ -4,6 +4,9 @@
 # ==============================================================================
 declare airplay_name
 declare avahi_hostname
+declare avahi_domain
+declare enable_ipv6
+declare log_level
 
 if ! bashio::config.has_value 'avahi_hostname'; then
     bashio::log.fatal
@@ -24,7 +27,7 @@ fi
 #    } >> /etc/spotifyd.conf
 #fi
 
-name=$(bashio::config 'airplay_name')
+airplay_name=$(bashio::config 'airplay_name')
 {
 	echo "general ="
 	echo "\{"
@@ -36,5 +39,6 @@ avahi_hostname=$(bashio::config 'avahi_hostname')
 {
 	echo "[server]"
 	echo "host-name=${avahi_hostname}"
+	echo "domain-name=${avahi_hostname}"
 	echo "allow-interfaces=eth0"
 } > /etc/avahi/avahi-daemon.conf

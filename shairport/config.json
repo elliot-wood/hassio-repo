@@ -1,6 +1,6 @@
 {
   "name": "Shairport Sync",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "slug": "shairport",
   "description": "Stream AirPlay content to your Home Assistant device",
   "url": "https://github.com/elliot-wood/addon-spotify-connect",
@@ -28,7 +28,8 @@
     "ap_drift" : "match(^[0-9]+$)?",
     "ap_resync" : "match(^[0-9]+$)?",
     "ap_ignore_volume" : "list(yes|no)?",
-    "ap_statistics" : "list(yes|no)?"
+    "ap_statistics" : "list(yes|no)?",
+    "ap_playback_mode" : "list(stereo|mono)?",
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)?"
   }
 }

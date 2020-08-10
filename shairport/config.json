@@ -1,6 +1,6 @@
 {
   "name": "Shairport Sync",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "slug": "shairport",
   "description": "Stream AirPlay content to your Home Assistant device",
   "url": "https://github.com/elliot-wood/addon-spotify-connect",
@@ -16,14 +16,19 @@
     "airplay_name": "HomeAssistant",
     "avahi_hostname": "homeassistant",
     "avahi_domain": "local",
-    "enable_ipv6": true,
     "log_level": "info"
   },
   "schema": {
     "airplay_name": "str",
-    "avahi_hostname": "str",
-    "avahi_domain": "match(^[A-Za-z0-9-.]+$)?",
-    "enable_ipv6": "bool",
+    "avahi_hostname": "match(^[A-Za-z0-9-.]+$)",
+    "avahi_domain": "match(^[A-Za-z0-9-.]+$)",
+    "ap_password" : "str?",
+    "ap_interpolation" : "list(basic|soxr)?",
+    "ap_port" : "match(^[0-9]+$)?",
+    "ap_drift" : "match(^[0-9]+$)?",
+    "ap_resync" : "match(^[0-9]+$)?",
+    "ap_ignore_volume" : "list(yes|no)?",
+    "ap_statistics" : "list(yes|no)?"
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)?"
   }
 }

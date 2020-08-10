@@ -30,9 +30,9 @@ fi
 airplay_name=$(bashio::config 'airplay_name')
 {
 	echo "general ="
-	echo "\{"
+	echo "{"
     echo "name = \"${airplay_name}\""
-    echo "\}\;"
+    echo "};"
 } > /etc/shairport-sync.conf
 
 avahi_hostname=$(bashio::config 'avahi_hostname')

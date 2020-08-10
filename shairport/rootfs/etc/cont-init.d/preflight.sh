@@ -24,13 +24,13 @@ fi
 #    } >> /etc/spotifyd.conf
 #fi
 
-name=$(bashio::config 'name')
+name=$(bashio::config 'airplay_name')
 {
 	echo "general ="
 	echo "\{"
     echo "name = ${airplay_name}"
     echo "\}\;"
-} > /etc/shairport-sync/shairport-sync.conf
+} > /etc/shairport-sync.conf
 
 avahi_hostname=$(bashio::config 'avahi_hostname')
 {

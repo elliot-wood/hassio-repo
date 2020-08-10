@@ -5,15 +5,6 @@
 # ==============================================================================
 declare -a options
 
-bashio::log.info 'Starting the Spotify daemon...'
+bashio::log.info 'Starting the D-Bus daemon...'
 
-# Run spotifyd in the foreground
-options+=(--no-daemon)
-
-# Are we running in debug mode?
-if bashio::debug; then
-  options+=(--verbose)
-fi
-
-# Run spotifyd
-exec spotifyd "${options[@]}"
+exec dbus-daemon --system --nofork

@@ -6,17 +6,36 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base
 RUN \
-    apt-get update \
+    apk add avahi mbedtls \
+    && apk add \
+        build-base git xmltoman autoconf automake libtool libdaemon-dev popt-dev \
+        avahi-dev alsa-lib-dev soxr-dev mbedtls-dev libsndfile-dev libconfig-dev \
     \
-    && apt-get install -y --no-install-recommends \
-    	shairport-sync \
-    	libasound2-plugins \
+    && cd ~ && git clone 'https://github.com/mikebrady/alac.git' \
+    && cd alac \
+    && autoreconf -i -f \
+    && ./configure --prefix=/usr/local \
+    && make && make install && ldconfig \
+    && cd .. \
+    \
+    && git clone 'https://github.com/mikebrady/shairport-sync.git' \
+    && cd shairport-sync \
+    && autoreconf -i -f \
+    && ./configure
+        --prefix=/usr/local --with-alsa --with-avahi --with-ssl=mbedtls \
+        --with-libdaemon --with-soxr --with-metadata --with-apple-alac --with-convolution \
+    && make && make install \
+    && cd .. \
+    \
+    && rm -rf alac shairport-sync \
+    \
+    && apk del --purge \
+        build-base git xmltoman autoconf automake libtool libdaemon-dev \
+        popt-dev avahi-dev alsa-lib-dev soxr-dev mbedtls-dev libsndfile-dev libconfig-dev \
     \
     && rm -fr \
         /tmp/* \
-        /var/{cache,log}/* \
-        /var/lib/apt/lists/* \
-    && mkdir /var/run/dbus
+        /var/{cache,log}/*
 
 # Copy root filesystem
 COPY rootfs /

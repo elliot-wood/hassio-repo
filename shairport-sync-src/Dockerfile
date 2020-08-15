@@ -26,16 +26,16 @@ RUN \
         --with-libdaemon --with-soxr --with-metadata --with-apple-alac --with-convolution \
     && make && make install \
     && cd .. \
-    \
-    && rm -rf alac shairport-sync \
+#    \
+#    && rm -rf alac shairport-sync \
     \
     && apk del --purge \
         build-base git xmltoman autoconf automake libtool libdaemon-dev \
         popt-dev avahi-dev alsa-lib-dev soxr-dev mbedtls-dev libsndfile-dev libconfig-dev \
     \
-    && rm -fr \
-        /tmp/* \
-        /var/{cache,log}/*
+#    && rm -fr \
+#        /tmp/* \
+#        /var/{cache,log}/*
 
 # Copy root filesystem
 COPY rootfs /

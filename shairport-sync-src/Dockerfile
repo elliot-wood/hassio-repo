@@ -21,7 +21,7 @@ RUN \
     && git clone 'https://github.com/mikebrady/shairport-sync.git' \
     && cd shairport-sync \
     && autoreconf -i -f \
-    && ./configure
+    && ./configure \
         --prefix=/usr/local --with-alsa --with-avahi --with-ssl=mbedtls \
         --with-libdaemon --with-soxr --with-metadata --with-apple-alac --with-convolution \
     && make && make install \

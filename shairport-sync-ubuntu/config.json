@@ -1,8 +1,8 @@
 {
-  "name": "Shairport Sync",
+  "name": "Shairport Sync (ubuntu)",
   "version": "0.2.0",
-  "slug": "shairport",
-  "description": "Stream AirPlay content to your Home Assistant device",
+  "slug": "shairport-sync-ubuntu",
+  "description": "Stream AirPlay content to your Home Assistant device.",
   "url": "https://github.com/elliot-wood/addon-spotify-connect",
   "startup": "services",
   "arch": ["aarch64", "amd64", "armv7", "i386"],

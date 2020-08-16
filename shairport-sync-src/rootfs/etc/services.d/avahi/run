@@ -1,8 +1,5 @@
 #!/usr/bin/with-contenv bashio
-# ==============================================================================
-# Home Assistant Community Add-on: Spotify Connect
-# Start the Avahi (mDNS) daemon
-# ==============================================================================
+
 declare -a options
 
 bashio::log.info 'Starting Avahi...'

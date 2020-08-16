@@ -33,3 +33,4 @@ apk del --purge build-base git xmltoman autoconf automake libtool libdaemon-dev 
 # clean up the image
 rm -rf alac shairport-sync
 rm -rf /var/cache/{log,apk}/*
+rm /etc/avahi/services/*

@@ -1,19 +1,12 @@
 #!/usr/bin/with-contenv bashio
-# ==============================================================================
-# Home Assistant Community Add-on: Spotify Connect
-# Runs spotifyd
-# ==============================================================================
 declare -a options
 
 bashio::log.info 'Starting the Shairport Sync daemon...'
 
-# Run shairport-sync in the foreground
-#options+=(--no-daemon)
-
-# Are we running in debug mode?
+# Debug mode handler
 #if bashio::debug; then
 #  options+=(--verbose)
 #fi
 
-# Run spotifyd
+# Run shairport-sync
 exec shairport-sync "${options[@]}"

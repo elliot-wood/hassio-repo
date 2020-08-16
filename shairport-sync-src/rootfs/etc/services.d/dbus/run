@@ -1,10 +1,6 @@
 #!/usr/bin/with-contenv bashio
-# ==============================================================================
-# Home Assistant Community Add-on: Spotify Connect
-# Runs spotifyd
-# ==============================================================================
+
 declare -a options
 
 bashio::log.info 'Starting the D-Bus daemon...'
-
 exec dbus-daemon --system --nofork

@@ -26,79 +26,79 @@ if ! bashio::config.has_value 'avahi_hostname'; then
 fi
 
 
-# /usr/local/etc/shairport-sync.con
+# /usr/local/etc/shairport-sync.conf
 # TODO: make this not incredibly cursed
 {
 	echo "general ="
 	echo "{"
-} > /usr/local/etc/shairport-sync.con
+} > /usr/local/etc/shairport-sync.conf
 
 if bashio::config.has_value 'airplay_name'; then
 	airplay_name=$(bashio::config 'airplay_name')
 	{
 		echo "name = \"${airplay_name}\""
-	} >> /usr/local/etc/shairport-sync.con
+	} >> /usr/local/etc/shairport-sync.conf
 fi
 
 if bashio::config.has_value 'ap_password'; then
 	ap_password=$(bashio::config 'ap_password')
 	{
 		echo "password = \"${ap_password}\""
-	} >> /usr/local/etc/shairport-sync.con
+	} >> /usr/local/etc/shairport-sync.conf
 fi
 
 if bashio::config.has_value 'ap_interpolation'; then
 	ap_interpolation=$(bashio::config 'ap_interpolation')
 	{
 		echo "interpolation = \"${ap_interpolation}\""
-	} >> /usr/local/etc/shairport-sync.con
+	} >> /usr/local/etc/shairport-sync.conf
 fi
 
 if bashio::config.has_value 'ap_port'; then
 	ap_port=$(bashio::config 'ap_port')
 	{
 		echo "port = \"${ap_port}\""
-	} >> /usr/local/etc/shairport-sync.con
+	} >> /usr/local/etc/shairport-sync.conf
 fi
 
 if bashio::config.has_value 'ap_drift'; then
 	ap_drift=$(bashio::config 'ap_drift')
 	{
 		echo "drift = \"${ap_drift}\""
-	} >> /usr/local/etc/shairport-sync.con
+	} >> /usr/local/etc/shairport-sync.conf
 fi
 
 if bashio::config.has_value 'ap_resync'; then
 	ap_resync=$(bashio::config 'ap_resync')
 	{
 		echo "resync_threshold = \"${ap_resync}\""
-	} >> /usr/local/etc/shairport-sync.con
+	} >> /usr/local/etc/shairport-sync.conf
 fi
 
 if bashio::config.has_value 'ap_ignore_volume'; then
 	ap_ignore_volume=$(bashio::config 'ap_ignore_volume')
 	{
 		echo "ignore_volume_control = \"${ap_ignore_volume}\""
-	} >> /usr/local/etc/shairport-sync.con
+	} >> /usr/local/etc/shairport-sync.conf
 fi
 
 if bashio::config.has_value 'ap_statistics'; then
 	ap_statistics=$(bashio::config 'ap_statistics')
 	{
 		echo "statistics = \"${ap_statistics}\""
-	} >> /usr/local/etc/shairport-sync.con
+	} >> /usr/local/etc/shairport-sync.conf
 fi
 
 if bashio::config.has_value 'ap_playback_mode'; then
 	ap_playback_mode=$(bashio::config 'airplay_name')
 	{
 		echo "playback_mode = \"${ap_playback_mode}\""
-	} >> /usr/local/etc/shairport-sync.con
+	} >> /usr/local/etc/shairport-sync.conf
 fi
 
 {
     echo "};"
-} >> /usr/local/etc/shairport-sync.con
+} >> /usr/local/etc/shairport-sync.conf
 
 
 # /etc/avahi/avahi-daemon.conf
